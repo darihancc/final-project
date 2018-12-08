@@ -1,9 +1,9 @@
 package com.example.hli3584.weatherapp.Retrofit;
 
-import android.database.Observable;
+//import android.database.Observable;
 
 import com.example.hli3584.weatherapp.Model.WeatherResult;
-
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
