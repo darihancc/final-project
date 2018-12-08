@@ -108,6 +108,8 @@ public class TodayWeatherFragment extends Fragment {
                         public void accept(WeatherResult weatherResult) throws Exception
                         {
 
+
+                            //Load image
                             Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/").append(weatherResult.getWeather().get(0).getIcon())
                             .append(".png").toString()).into(img_weather);
 
