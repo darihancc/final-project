@@ -21,6 +21,9 @@ public class TodayWeatherFragment extends Fragment {
         return instance;
     }
 
+    public TodayWeatherFragment(){
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
