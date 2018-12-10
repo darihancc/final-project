@@ -3,15 +3,11 @@ package com.example.hli3584.weatherapp.Model;
 public class Main {
     private double temp;
     private float pressure;
-    private int humidity;
+    private float humidity;
     private double temp_min;
     private double temp_max;
 
     public Main() {
-    }
-
-    public double getTemp() {
-        return temp;
     }
 
     public void setTemp(double temp) {
@@ -26,11 +22,11 @@ public class Main {
         this.pressure = pressure;
     }
 
-    public int getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
 
@@ -48,5 +44,9 @@ public class Main {
 
     public void setTemp_max(double temp_max) {
         this.temp_max = temp_max;
+    }
+
+    public double getTemp() {
+        return temp;
     }
 }
