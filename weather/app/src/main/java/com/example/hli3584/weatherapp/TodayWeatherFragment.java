@@ -133,14 +133,22 @@ public class TodayWeatherFragment extends Fragment {
                         @Override
                         public void accept(Throwable throwable) throws Exception {
                             Toast.makeText(getActivity(), ""+throwable.getMessage(), Toast.LENGTH_SHORT).show();
-
-
                         }
                     })
-
              );
-
-
         }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
 
 }

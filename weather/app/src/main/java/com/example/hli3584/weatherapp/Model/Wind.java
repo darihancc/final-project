@@ -2,7 +2,7 @@ package com.example.hli3584.weatherapp.Model;
 
 public class Wind {
     private double speed;
-    private int deg;
+    private float deg;
     //private double gust;
 
 
@@ -17,11 +17,11 @@ public class Wind {
         this.speed = speed;
     }
 
-    public int getDeg() {
+    public float getDeg() {
         return deg;
     }
 
-    public void setDeg(int deg) {
+    public void setDeg(float deg) {
         this.deg = deg;
     }
 }

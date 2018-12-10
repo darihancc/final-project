@@ -18,6 +18,7 @@ import android.util.Log;
 
 import com.example.hli3584.weatherapp.Adapter.ViewPageAdapter;
 import com.example.hli3584.weatherapp.Common.Common;
+import com.example.hli3584.weatherapp.Model.City;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager());
         adapter.addFragment(TodayWeatherFragment.getInstance(),"Today");
         adapter.addFragment(ForecastFragment.getInstance(),"5 DAYS");
+        adapter.addFragment(CityFragment.getInstance(),"Cities");
         viewPager.setAdapter(adapter);
     }
 
