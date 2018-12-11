@@ -114,14 +114,14 @@ public class TodayWeatherFragment extends Fragment {
                             .append(".png").toString()).into(img_weather);
 
                             txt_city_name.setText(weatherResult.getName());
-                            txt_description.setText( new StringBuilder("Weather in").append(weatherResult.getName()).toString());
+                            txt_description.setText( new StringBuilder("Weather in ").append(weatherResult.getName()).toString());
                             txt_temperature.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
                             txt_date_time.setText(Common.convertUnixToDate(weatherResult.getDt()));
                             txt_pressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append(" hpa ").toString());
                             txt_humidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append(" %").toString());
                             txt_sunrise.setText(Common.convertUnixToHour(weatherResult.getSys().getSunrise()));
                             txt_sunset.setText(Common.convertUnixToHour(weatherResult.getSys().getSunset()));
-                            txt_geo_coord.setText(new StringBuilder("[").append(weatherResult.getCoord().toString()).append("]").toString());
+                            txt_geo_coord.setText(new StringBuilder("").append(weatherResult.getCoord().toString()).append("").toString());
 
                             //display
 
