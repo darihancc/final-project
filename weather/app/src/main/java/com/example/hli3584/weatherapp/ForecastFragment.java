@@ -53,15 +53,22 @@ public class ForecastFragment extends Fragment {
 
 
     @Override
-    public void onDestroy() {
-        compositeDisposable.clear();
-        super.onDestroy();
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View itemView = inflater.inflate(R.layout.fragment_forecast, container, false);
 
-    @Override
-    public void onStop() {
-        compositeDisposable.clear();
-        super.onStop();
+        txt_city_name = (TextView)itemView.findViewById(R.id.txt_city_name);
+        txt_geo_coord = (TextView)itemView.findViewById(R.id.txt_geo_coord);
+
+        recycler_forecast = (RecyclerView)itemView.findViewById(R.id.recycler_forecast);
+        recycler_forecast.setHasFixedSize(true);
+        recycler_forecast.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+
+        getForecastWeatherInformation();
+
+
+        return itemView;
     }
 
     private void getForecastWeatherInformation() {
@@ -86,25 +93,6 @@ public class ForecastFragment extends Fragment {
         );
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View itemView = inflater.inflate(R.layout.fragment_forecast, container, false);
-
-        txt_city_name = (TextView)itemView.findViewById(R.id.txt_city_name);
-        txt_geo_coord = (TextView)itemView.findViewById(R.id.txt_geo_coord);
-
-        recycler_forecast = (RecyclerView)itemView.findViewById(R.id.recycler_forecast);
-        recycler_forecast.setHasFixedSize(true);
-        recycler_forecast.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-
-        getForecastWeatherInformation();
-
-
-        return itemView;
-    }
-
     private void displayForecastWeather(WeatherForecastResult weatherForecastResult) {
         txt_city_name.setText(new StringBuilder(weatherForecastResult.city.name));
         txt_geo_coord.setText(new StringBuilder(weatherForecastResult.city.coord.toString()));
@@ -112,6 +100,21 @@ public class ForecastFragment extends Fragment {
         WeatherForecastAdapter adapter = new WeatherForecastAdapter(getContext(),weatherForecastResult);
         recycler_forecast.setAdapter(adapter);
     }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
+
+
 
 }
 
